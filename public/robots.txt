@@ -1,3 +1,4 @@
+# 网站爬虫规则限制文件
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
