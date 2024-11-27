@@ -34,7 +34,7 @@ export default class App extends Component {
               <div className="panel-body">
                 <Routes>
                   <Route path="/about" element={<About />} />
-                  <Route path="/home/*" element={<Home />} />
+                  <Route path="/home" element={<Home />} />
                   <Route path="*" element={<Navigate to="/about" />} />
                 </Routes>
               </div>
