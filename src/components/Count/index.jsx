@@ -7,7 +7,6 @@ export default class Counter extends Component {
     但每个页面都写很麻烦，直接在入口文件订阅
   */
 
-
   // componentDidMount() {
   //   // 检测redux中状态的变化，只要变化，就调用render方法重新渲染
   //   this.unsubscribe = store.subscribe(() => {
