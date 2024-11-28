@@ -1,6 +1,6 @@
 import { ADD_PERSON } from "../constant";
 
-const initialState = [{ id: "001", name: "JacksonYee", age: "24" }];
+const initialState = [{ id: "001", name: "JacksonYee", age: 24 }];
 
 export default function personReducer(preState = initialState, action) {
   const { type, data } = action;

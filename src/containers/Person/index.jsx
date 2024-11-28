@@ -7,7 +7,7 @@ class Person extends Component {
   handleSubmit = () => {
     const { value: name } = this.nameNode;
     const { value: age } = this.nameAge;
-    const person = { id: nanoid(), name: name, age: age };
+    const person = { id: nanoid(), name: name, age: age*1 };
     this.props.addPerson(person);
     this.nameNode.value = "";
     this.nameAge.value = "";
