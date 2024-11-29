@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import {
-  increment,
-  decrement,
-  incrementAsync,
+  createIncrementAction,
+  createDecrementAction,
+  createIncrementSyncAction,
 } from "../../redux/actions/count";
 import { connect } from "react-redux";
 
@@ -10,24 +10,24 @@ import { connect } from "react-redux";
 class Counter extends Component {
   increment = () => {
     const { value } = this.selectNumber;
-    this.props.increment(parseInt(value));
+    this.props.jia(parseInt(value));
   };
 
   decrement = () => {
     const { value } = this.selectNumber;
-    this.props.decrement(parseInt(value));
+    this.props.jian(parseInt(value));
   };
 
   incrementIfOdd = () => {
     const { value } = this.selectNumber;
     if (this.props.count % 2 !== 0) {
-      this.props.increment(parseInt(value));
+      this.props.jia(parseInt(value));
     }
   };
 
   incrementAsync = () => {
     const { value } = this.selectNumber;
-    this.props.incrementAsync(parseInt(value), 1000);
+    this.props.jiaSync(parseInt(value), 1000);
   };
 
   render() {
@@ -36,7 +36,7 @@ class Counter extends Component {
       <div>
         <h1>我是Count组件</h1>
         <h2>
-          当前求和为: {this.props.count}, 下方Person组件总人数为:
+          当前求和为: {this.props.count}, 下方Person组件总人数为:{" "}
           {this.props.personNumber}
         </h2>
         &nbsp;
@@ -61,8 +61,8 @@ export default connect(
   // 现在的state是一个对象{ count: number, persons: [...] }
   (state) => ({ count: state.count, personNumber: state.persons.length }),
   {
-    increment: increment,
-    decrement: decrement,
-    incrementAsync: incrementAsync,
+    jia: createIncrementAction,
+    jian: createDecrementAction,
+    jiaSync: createIncrementSyncAction,
   }
 )(Counter);

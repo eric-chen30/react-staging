@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
 import { connect } from "react-redux";
-import { addPerson } from "../../redux/actions/person";
+import { createAddPersonAction } from "../../redux/actions/person";
 
 class Person extends Component {
   handleSubmit = () => {
@@ -16,7 +16,7 @@ class Person extends Component {
     console.log("Person组件接收的props:", this.props.persons);
     return (
       <div>
-        <h1>我是Person组件, 上方组件求和为{this.props.count}</h1>
+        <h1>我是Person组件, 上方组件求和为{this.props.upComponentCount}</h1>
         &nbsp;
         <input
           ref={(c) => (this.nameNode = c)}
@@ -45,8 +45,8 @@ class Person extends Component {
 }
 
 export default connect(
-  (state) => ({ persons: state.persons, count: state.count }),
+  (state) => ({ persons: state.persons, upComponentCount: state.count }),
   {
-    addPerson: addPerson,
+    addPerson: createAddPersonAction,
   }
 )(Person);
